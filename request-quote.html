@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Quote | PPC</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --navy: #10283b;
+            --gold: #c69b5d;
+            --ink: #1d303d;
+            --muted: #6d7b85;
+            --line: #e4e9ec;
+            --bg: #f7f9fa;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'DM Sans', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+        }
+
+        header {
+            background: white;
+            padding: 28px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .brand {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .brand h1 {
+            margin: 0;
+            color: var(--navy);
+            font: 800 58px Montserrat, sans-serif;
+            letter-spacing: .15em;
+        }
+
+        .brand p {
+            margin: 5px 0 0;
+            color: var(--muted);
+            font-size: 11px;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 790px;
+            margin: 45px auto 75px;
+            padding: 0 20px;
+        }
+
+        .back {
+            display: inline-block;
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 700;
+            margin-bottom: 22px;
+        }
+
+        .form-card {
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 42px;
+            box-shadow: 0 10px 35px #10283b0b;
+        }
+
+        .kicker {
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font: 700 clamp(28px, 4vw, 38px) Montserrat, sans-serif;
+            color: var(--navy);
+            margin: 12px 0;
+        }
+
+        .intro {
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .field.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .required {
+            color: #a65c3b;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            border: 1px solid #d5dee4;
+            background: white;
+            padding: 14px;
+            border-radius: 4px;
+            font: 14px 'DM Sans', sans-serif;
+            color: var(--ink);
+            outline: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--gold);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .help {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .photo-upload {
+            border: 1px dashed #b9c7d0;
+            border-radius: 6px;
+            padding: 22px;
+            background: #fafcfd;
+        }
+
+        .photo-upload input {
+            border: none;
+            padding: 0;
+            background: transparent;
+        }
+
+        .photo-list {
+            margin-top: 10px;
+            font-size: 12px;
+            color: var(--muted);
+            overflow-wrap: anywhere;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            border: 0;
+            border-radius: 4px;
+            padding: 17px;
+            margin-top: 30px;
+            background: var(--navy);
+            color: white;
+            font-weight: 800;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #23465f;
+        }
+
+        .notice {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            background: #f4f7f8;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .message {
+            margin-top: 18px;
+            color: var(--navy);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer {
+            background: #10283b;
+            color: #ffffff;
+            text-align: center;
+            padding: 48px 20px 35px;
+            width: 100%;
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: "Montserrat", sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            line-height: 1.2;
+        }
+
+        .footer-brand {
+            margin: 10px 0 0;
+            font-family: "Montserrat", sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            color: #b8c9d4;
+        }
+
+        .footer-line {
+            width: 55px;
+            height: 2px;
+            background: #c69b5d;
+            margin: 25px auto;
+        }
+
+        .footer-description {
+            margin: 0 0 12px;
+            font-size: 13px;
+            color: #d4dfe6;
+        }
+
+        .footer-location {
+            margin: 0 0 25px;
+            font-size: 12px;
+            color: #c69b5d;
+            font-weight: 600;
+        }
+
+        .footer-copyright {
+            margin: 0;
+            font-size: 11px;
+            color: #9fb2bf;
+        }
+
+        @media (max-width: 600px) {
+            .footer {
+                padding: 38px 18px 28px;
+            }
+
+            .footer-logo {
+                font-size: 30px;
+            }
+
+            .footer-brand {
+                font-size: 9px;
+                letter-spacing: 0.14em;
+            }
+
+            .footer-description {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .container {
+                margin-top: 25px;
+            }
+
+            .form-card {
+                padding: 25px 18px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .field.full {
+                grid-column: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html" class="brand">
+            <h1>PPC</h1>
+            <p>Professional Property Care</p>
+        </a>
+    </header>
+
+    <main class="container">
+        <a href="index.html" class="back">← Back to Home</a>
+
+        <div class="form-card">
+            <span class="kicker">Property Maintenance Enquiry</span>
+            <h2>Request a Quote</h2>
+
+            <p class="intro">
+                Please complete the form below and tell us about
+                the work required. We will review your enquiry
+                and contact you to discuss the next steps.
+            </p>
+
+            <form id="quoteForm" action="https://usebasin.com/f/ba91574c1a40" method="POST"
+                enctype="multipart/form-data" accept-charset="UTF-8">
+                <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+                    <label for="botvortex">Leave this field empty</label>
+                    <input type="text" id="botvortex" name="_botvortex" tabindex="-1" autocomplete="off">
+                </div>
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label for="fullName">
+                            Full Name <span class="required">*</span>
+                        </label>
+                        <input type="text" id="fullName" name="fullName" autocomplete="name" required
+                            placeholder="Your full name">
+                    </div>
+
+                    <div class="field">
+                        <label for="phone">
+                            Phone Number <span class="required">*</span>
+                        </label>
+                        <input type="tel" id="phone" name="phone" autocomplete="tel" required placeholder="+44...">
+                    </div>
+
+                    <div class="field">
+                        <label for="email">
+                            Email Address <span class="required">*</span>
+                        </label>
+                        <input type="email" id="email" name="email" autocomplete="email" required
+                            placeholder="name@example.com">
+                    </div>
+
+                    <div class="field">
+                        <label for="postcode">
+                            Property Postcode <span class="required">*</span>
+                        </label>
+                        <input type="text" id="postcode" name="postcode" autocomplete="postal-code" required
+                            placeholder="e.g. SW1A 1AA">
+                    </div>
+
+                    <div class="field full">
+                        <label for="service">
+                            Service Required <span class="required">*</span>
+                        </label>
+
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="Windows">Windows</option>
+                            <option value="Doors">Doors</option>
+                            <option value="Electricity">Electricity</option>
+                            <option value="Plumbing">Plumbing</option>
+                            <option value="General Maintenance">
+                                General Maintenance
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="field full">
+                        <label for="description">
+                            Description of Work <span class="required">*</span>
+                        </label>
+
+                        <textarea id="description" name="description" required
+                            placeholder="Please describe the issue, location and work required."></textarea>
+                    </div>
+
+                    <div class="field full">
+                        <label for="photos">Upload Photos</label>
+
+                        <div class="photo-upload">
+                            <input type="file" id="photos" name="photos[]" accept="image/jpeg,image/png,image/webp"
+                                multiple>
+
+                            <div class="photo-list" id="photoList">
+                                No photos selected
+                            </div>
+                        </div>
+                        <div class="help">
+                            Optional. Upload up to 5 photos.
+                            JPG, PNG or WebP.
+                            Maximum 10 MB per photo.
+                        </div>
+                    </div>
+
+                    <div class="field full">
+                        <label for="visitDate">
+                            Preferred Visit Date
+                        </label>
+
+                        <input type="date" id="visitDate" name="visitDate">
+
+                        <div class="help">
+                            Your preferred date is a request,
+                            not a confirmed appointment.
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="submit-btn" type="submit">
+                    Submit Request →
+                </button>
+
+                <div class="message" id="message" role="status" aria-live="polite"></div>
+
+                <div class="notice">
+                    Your information will be used to respond
+                    to your enquiry. Please do not include
+                    sensitive personal information in the
+                    description or photographs.
+                </div>
+            </form>
+        </div>
+    </main>
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">PPC</div>
+
+            <p class="footer-brand">
+                PROFESSIONAL PROPERTY CARE
+            </p>
+
+            <div class="footer-line"></div>
+
+            <p class="footer-description">
+                Reliable Property Maintenance &amp; Repair Services
+            </p>
+
+            <p class="footer-location">
+                Covering All London
+            </p>
+
+            <p class="footer-copyright">
+                &copy; <span id="year"></span> PPC.
+                All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+
+
+    <script>
+        // FORM ELEMENTS
+        const form = document.getElementById("quoteForm");
+        const photoInput = document.getElementById("photos");
+        const photoList = document.getElementById("photoList");
+        const dateInput = document.getElementById("visitDate");
+        const serviceSelect = document.getElementById("service");
+        const message = document.getElementById("message");
+        const submitBtn = form.querySelector('button[type="submit"]');
+
+        // PRESELECT SERVICE FROM URL
+        const params = new URLSearchParams(window.location.search);
+        const requestedService = params.get("service");
+
+        if (
+            requestedService &&
+            Array.from(serviceSelect.options).some(
+                option => option.value === requestedService
+            )
+        ) {
+            serviceSelect.value = requestedService;
+        }
+
+        // PREVENT PAST DATES
+        function localDateString(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, "0");
+            const day = String(date.getDate()).padStart(2, "0");
+
+            return `${year}-${month}-${day}`;
+        }
+
+        dateInput.min = localDateString(new Date());
+
+        // PHOTO VALIDATION
+
+        const MAX_PHOTOS = 5;
+        const MAX_FILE_SIZE = 10 * 1024 * 1024;
+        const MAX_TOTAL_SIZE = 20 * 1024 * 1024;
+
+        const allowedTypes = [
+            "image/jpeg",
+            "image/png",
+            "image/webp"
+        ];
+
+        function validatePhotos() {
+            const files = Array.from(photoInput.files);
+
+            if (files.length > MAX_PHOTOS) {
+                return "You can upload a maximum of 5 photos.";
+            }
+
+            let totalSize = 0;
+
+            for (const file of files) {
+                if (!allowedTypes.includes(file.type)) {
+                    return "Only JPG, PNG and WebP photos are allowed.";
+                }
+
+                if (file.size > MAX_FILE_SIZE) {
+                    return "Each photo must not exceed 10 MB.";
+                }
+
+                totalSize += file.size;
+            }
+
+            if (totalSize > MAX_TOTAL_SIZE) {
+                return "Total photo size must not exceed 20 MB.";
+            }
+
+            return "";
+        }
+
+
+        // DISPLAY SELECTED PHOTOS
+        photoInput.addEventListener("change", () => {
+            const files = Array.from(photoInput.files);
+            const error = validatePhotos();
+
+            if (error) {
+                photoList.textContent = error;
+                photoInput.value = "";
+                message.textContent = error;
+                return;
+            }
+
+            message.textContent = "";
+
+            photoList.textContent = files.length
+                ? files.map(file => file.name).join(", ")
+                : "No photos selected";
+        });
+
+        // SUBMIT FORM TO BASIN
+        form.addEventListener("submit", function (event) {
+            const error = validatePhotos();
+
+            if (error) {
+                event.preventDefault();
+                message.textContent = error;
+                return;
+            }
+
+            // Allow the browser to submit directly to Basin.
+            // Do not use preventDefault() here.
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Sending request...";
+
+            message.textContent =
+                "Your request is being submitted. Please wait.";
+        });
+
+        // CURRENT YEAR
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+
+</body>
+
+</html>
